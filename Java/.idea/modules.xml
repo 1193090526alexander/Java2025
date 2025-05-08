@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/10Matrices/10Matrices.iml" filepath="$PROJECT_DIR$/10Matrices/10Matrices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/11Funciones/11Funciones.iml" filepath="$PROJECT_DIR$/11Funciones/11Funciones.iml" />
+      <module fileurl="file://$PROJECT_DIR$/12POO/12POO.iml" filepath="$PROJECT_DIR$/12POO/12POO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/13TemasAvanzados/13TemasAvanzados.iml" filepath="$PROJECT_DIR$/13TemasAvanzados/13TemasAvanzados.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2IntroducionJava/2IntroducionJava.iml" filepath="$PROJECT_DIR$/2IntroducionJava/2IntroducionJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/3variables/3variables.iml" filepath="$PROJECT_DIR$/3variables/3variables.iml" />
+      <module fileurl="file://$PROJECT_DIR$/4Cadenas/4Cadenas.iml" filepath="$PROJECT_DIR$/4Cadenas/4Cadenas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/5ManejoConsola/5ManejoConsola.iml" filepath="$PROJECT_DIR$/5ManejoConsola/5ManejoConsola.iml" />
+      <module fileurl="file://$PROJECT_DIR$/6Operadores/6Operadores.iml" filepath="$PROJECT_DIR$/6Operadores/6Operadores.iml" />
+      <module fileurl="file://$PROJECT_DIR$/7SentenciaDecisiones/7SentenciaDecisiones.iml" filepath="$PROJECT_DIR$/7SentenciaDecisiones/7SentenciaDecisiones.iml" />
+      <module fileurl="file://$PROJECT_DIR$/8CiclosEnJava/8CiclosEnJava.iml" filepath="$PROJECT_DIR$/8CiclosEnJava/8CiclosEnJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/9Arreglos/9Arreglos.iml" filepath="$PROJECT_DIR$/9Arreglos/9Arreglos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java.iml" filepath="$PROJECT_DIR$/.idea/Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Netbeasnd/Netbeasnd.iml" filepath="$PROJECT_DIR$/Netbeasnd/Netbeasnd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Retos/Retos.iml" filepath="$PROJECT_DIR$/Retos/Retos.iml" />
+    </modules>
+  </component>
+</project>
