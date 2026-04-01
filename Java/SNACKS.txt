@@ -1,0 +1,5 @@
+1, Papas, 1300.0
+2, CocaCola, 2300.0
+3, Sandwich, 7000.0
+4, Sandwich 1, 7500.0
+5, malta, 1800.0
