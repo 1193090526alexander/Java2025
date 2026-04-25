@@ -1,0 +1,14 @@
+body {
+    background-color: black;
+    color: white;
+}
+a {
+    color: aquamarine;
+}
+a:hover {
+    color: yellow;
+}
+.selector-texto {
+    text-align: center;
+    font-size: 35px;
+}

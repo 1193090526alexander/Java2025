@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Zona Fit</title>
+    <link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css" />
+    <link rel="stylesheet" href="https://unpkg.com/primeicons@7.0.0/primeicons.css" />
+</h:head>
+
+<h:body>
+    <div class="card">
+        <h:form id="forma-clientes">
+            <p:growl id="mensajes" showDetails="true"/>
+            <div class="card">
+                <p:menubar>
+                    <p:menuitem value="Inicio" icon="pi pi-fw pi-user"
+                                update=":forma-clientes:clientes-tablas"
+                                actionListener="#{indesxControlador.cargarDatos}"/>
+                    <p:menuitem value="Nuevo Cliente" icon="pi pi-fw pi-plus"
+                                actionListener="#{indesxControlador.agregarCliente}"
+                                update=":forma-modal:cliente-ventana"
+                                oncomplete="PF('ventanaModalCliente').show()"/>
+                </p:menubar>
+            </div>
+            <div class="card">
+                <p:dataTable value="#{indesxControlador.clientes}" var="cliente"
+                             id="clientes-tablas" widgetVar="clientesTabla">
+                    <f:facet name="header">
+                        <div class="flex justify-content-center flex-wrap">
+                            <div class="flex align-items-center justify-content-center w-20rem h-4rem border-round m-2"
+                                 style="background:#eab308; color:#212121;">
+                                <h3>Zona Fit (GYM)</h3>
+                            </div>
+                        </div>
+                    </f:facet>
+                    <p:column headerText="Id">
+                        <h:outputText value="#{cliente.idCliente}" />
+                    </p:column>
+
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{cliente.nombre}" />
+                    </p:column>
+
+                    <p:column headerText="Apellido">
+                        <h:outputText value="#{cliente.apellido}" />
+                    </p:column>
+
+                    <p:column headerText="Membresía">
+                        <h:outputText value="#{cliente.membresia}" />
+                    </p:column>
+
+                    <p:column >
+                        <p:commandButton value="Editar" icon="pi pi-pencil"
+                                         update=":forma-modal:cliente-ventana"
+                                         process="@this"
+                                         oncomplete="PF('ventanaModalCliente').show()"
+                                         styleClass="ui-button-success"
+                                         style="margin-right: 5rem">
+
+                            <f:setPropertyActionListener
+                                    value="#{cliente}"
+                                    target="#{indesxControlador.clienteSeleccionado}"/>
+
+                            <p:resetInput target=":forma-modal:cliente-ventana"/>
+                        </p:commandButton>
+                    </p:column>
+                    <p:column>
+                        <p:commandButton value="Eliminar" icon="pi pi-trash"
+                                         process="@this"
+                                         oncomplete="PF('eliminarClienteVentana').show()"
+                                         styleClass="ui-button-danger"
+                                         style="margin-right: 5rem">
+
+                            <f:setPropertyActionListener
+                                    value="#{cliente}"
+                                    target="#{indesxControlador.clienteSeleccionado}"/>
+                        </p:commandButton>
+                    </p:column>
+                </p:dataTable>
+            </div>
+        </h:form>
+        <h:form id="forma-modal">
+            <p:dialog header="Detalles Cliente"
+                      showEffect="fade"
+                      modal="true"
+                      widgetVar="ventanaModalCliente"
+                      responsive="true">
+                <p:outputPanel id="cliente-ventana"
+                               styleClass="ui-fluid">
+                    <div class="field">
+                        <p:outputLabel  for="nombre" >Nombre</p:outputLabel>
+                        <p:inputText  id="nombre"
+                                      value="#{indesxControlador.clienteSeleccionado.nombre}"
+                                      required="true"/>
+                    </div>
+                    <div class="field">
+                        <p:outputLabel  for="apellido" >Apellido</p:outputLabel>
+                        <p:inputText  id="apellido"
+                                      value="#{indesxControlador.clienteSeleccionado.apellido}"/>
+
+                    </div>
+                    <div class="field">
+                        <p:outputLabel  for="membresia" >Membresia</p:outputLabel>
+                        <p:inputNumber  id="membresia"
+                                      value="#{indesxControlador.clienteSeleccionado.membresia}"
+                                      required="true"/>
+                    </div>
+                </p:outputPanel>
+                <f:facet name="footer">
+                    <p:commandButton value="Guardar" icon="pi pi-check"
+                                     process="cliente-ventana @this"
+                                     actionListener="#{indesxControlador.guardarCliente}"/>
+                    <p:commandButton value="cancelar" icon="pi pi-times"
+                                     onclick="PF('ventanaModalCliente').hide()"/>
+                </f:facet>
+            </p:dialog>
+        </h:form>
+        <h:form id="forma-confirmar-eliminar">
+            <p:confirmDialog widgetVar="eliminarClienteVentana"
+                             showEffect="fade"
+                             width="300"
+                             message="¿Eliminar el cliente?"
+                             header="Confirmar"
+                             severity="warn">
+
+                <p:commandButton value="Sí"
+                                 icon="pi pi-check"
+                                 styleClass="ui-button-danger"
+                                 process="@this"
+                                 update=":forma-clientes:mensajes :forma-clientes:clientes-tablas"
+                                 actionListener="#{indesxControlador.eliminarCliente}"
+                                 oncomplete="PF('eliminarClienteVentana').hide()" />
+
+                <p:commandButton value="No"
+                                 type="button"
+                                 icon="pi pi-times"
+                                 styleClass="ui-button-secondary"
+                                 onclick="PF('eliminarClienteVentana').hide()" />
+            </p:confirmDialog>
+        </h:form>
+    </div>
+</h:body>
+</html>
